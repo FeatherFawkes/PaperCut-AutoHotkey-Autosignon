@@ -8,8 +8,8 @@ SetKeyDelay 75, 75
 SetTitleMatchMode 3
 CoordMode "Mouse", "Window"
 
-global CredentialHelper := "C:\Users\Edison\PaperCut-AHK\Get-PaperCutCredential.ps1"
-global SaveCredentialScript := "C:\Users\Edison\PaperCut-AHK\Save-PaperCutCredential.ps1"
+global CredentialHelper := A_ScriptDir "\Get-PaperCutCredential.ps1"
+global SaveCredentialScript := A_ScriptDir "\Save-PaperCutCredential.ps1"
 global PowerShellExe := A_WinDir "\System32\WindowsPowerShell\v1.0\powershell.exe"
 
 global LoginWindowTitle := "Login"

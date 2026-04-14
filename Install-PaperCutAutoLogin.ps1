@@ -5,7 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$root = 'C:\Users\Edison\PaperCut-AHK'
+$root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $startupShortcut = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\PaperCut MF Client.lnk'
 $backupPath = Join-Path $root 'install-backup.json'
 $ahkScript = Join-Path $root 'PaperCutAutoLogin.ahk'

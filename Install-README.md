@@ -2,10 +2,10 @@
 
 ## Install
 
-Run PowerShell as Administrator:
+Open PowerShell in this folder and run:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "C:\Users\Edison\PaperCut-AHK\Install-PaperCutAutoLogin.ps1"
+powershell -ExecutionPolicy Bypass -File ".\Install-PaperCutAutoLogin.ps1"
 ```
 
 This will:
@@ -19,10 +19,10 @@ This will:
 
 ## Uninstall
 
-Run PowerShell as Administrator:
+Open PowerShell in this folder and run:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "C:\Users\Edison\PaperCut-AHK\Uninstall-PaperCutAutoLogin.ps1"
+powershell -ExecutionPolicy Bypass -File ".\Uninstall-PaperCutAutoLogin.ps1"
 ```
 
 This will:
@@ -31,4 +31,4 @@ This will:
 - stop the running AutoHotkey watcher
 - restore the original PaperCut startup shortcut from backup when available
 - remove the saved PaperCut credential
-- leave the `C:\Users\Edison\PaperCut-AHK` folder in place and tell you it is safe to delete manually
+- leave this folder in place and tell you it is safe to delete manually

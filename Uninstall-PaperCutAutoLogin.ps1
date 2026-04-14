@@ -3,7 +3,7 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
-$root = 'C:\Users\Edison\PaperCut-AHK'
+$root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $backupPath = Join-Path $root 'install-backup.json'
 $credentialPath = Join-Path $env:LOCALAPPDATA 'PaperCutAHK\papercut-credential.xml'
 $credentialDir = Split-Path -Parent $credentialPath
@@ -47,4 +47,4 @@ if (Test-Path -LiteralPath $backupPath) {
 Write-Host 'PaperCut auto login uninstalled.'
 Write-Host 'Startup shortcut restored when backup was available.'
 Write-Host 'Saved credential removed.'
-Write-Host 'It is now safe to delete C:\Users\Edison\PaperCut-AHK if you no longer want the scripts.'
+Write-Host "It is now safe to delete $root if you no longer want the scripts."
