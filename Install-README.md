@@ -8,6 +8,8 @@ Open PowerShell in this folder and run:
 powershell -ExecutionPolicy Bypass -File ".\Install-PaperCutAutoLogin.ps1"
 ```
 
+Or double-click `Install.bat`.
+
 This will:
 
 - stop immediately without changing anything if PaperCut MF Client is not installed
@@ -24,6 +26,8 @@ Open PowerShell in this folder and run:
 ```powershell
 powershell -ExecutionPolicy Bypass -File ".\Uninstall-PaperCutAutoLogin.ps1"
 ```
+
+Or double-click `Uninstall.bat`.
 
 This will:
 

@@ -8,17 +8,25 @@
 
 ## First-time setup
 
-From this folder, run:
+For a fresh install, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ".\Install-PaperCutAutoLogin.ps1"
+```
+
+Or just double-click:
+
+- `Install.bat`
+
+If you only want to update the saved PaperCut password, run:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File ".\Save-PaperCutCredential.ps1"
 ```
 
-Then start:
+Or double-click:
 
-```powershell
-& "$env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe" ".\PaperCutAutoLogin.ahk"
-```
+- `Set Password.bat`
 
 ## Notes
 
