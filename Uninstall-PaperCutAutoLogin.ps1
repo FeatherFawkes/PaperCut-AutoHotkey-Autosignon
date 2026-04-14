@@ -9,11 +9,15 @@ function Test-IsAdministrator {
     return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
+function Wait-BeforeExit {
+    Read-Host 'Press Enter to close this window' | Out-Null
+}
+
 if (-not (Test-IsAdministrator)) {
     Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList @(
         '-ExecutionPolicy', 'Bypass',
         '-File', ('"{0}"' -f $MyInvocation.MyCommand.Path)
-    )
+    ) -Wait
     exit 0
 }
 
@@ -62,3 +66,5 @@ Write-Host 'PaperCut auto login uninstalled.'
 Write-Host 'Startup shortcut restored when backup was available.'
 Write-Host 'Saved credential removed.'
 Write-Host "It is now safe to delete $root if you no longer want the scripts."
+Write-Host 'Uninstall complete.'
+Wait-BeforeExit

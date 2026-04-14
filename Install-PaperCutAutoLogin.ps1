@@ -11,6 +11,10 @@ function Test-IsAdministrator {
     return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
+function Wait-BeforeExit {
+    Read-Host 'Press Enter to close this window' | Out-Null
+}
+
 if (-not (Test-IsAdministrator)) {
     $argList = @(
         '-ExecutionPolicy', 'Bypass',
@@ -20,7 +24,7 @@ if (-not (Test-IsAdministrator)) {
         $argList += '-StartNow'
     }
 
-    Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList $argList
+    Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList $argList -Wait
     exit 0
 }
 
@@ -123,3 +127,5 @@ if ($StartNow) {
 Write-Host 'PaperCut auto login installed.'
 Write-Host 'Startup shortcut updated to run PaperCut minimized and silent.'
 Write-Host 'AutoHotkey watcher added to HKCU Run.'
+Write-Host 'Installation complete.'
+Wait-BeforeExit
