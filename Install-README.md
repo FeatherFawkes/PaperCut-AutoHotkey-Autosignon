@@ -10,6 +10,8 @@ powershell -ExecutionPolicy Bypass -File ".\Install-PaperCutAutoLogin.ps1"
 
 Or double-click `Install.bat`.
 
+The installer will prompt for Administrator approval because it updates the all-users PaperCut startup shortcut in `C:\ProgramData`.
+
 This will:
 
 - stop immediately without changing anything if PaperCut MF Client is not installed
@@ -28,6 +30,8 @@ powershell -ExecutionPolicy Bypass -File ".\Uninstall-PaperCutAutoLogin.ps1"
 ```
 
 Or double-click `Uninstall.bat`.
+
+The uninstaller will also prompt for Administrator approval so it can restore the original all-users PaperCut startup shortcut.
 
 This will:
 

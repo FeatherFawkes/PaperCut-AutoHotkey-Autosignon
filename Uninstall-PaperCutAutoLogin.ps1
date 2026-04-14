@@ -3,6 +3,20 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
+function Test-IsAdministrator {
+    $currentIdentity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($currentIdentity)
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+if (-not (Test-IsAdministrator)) {
+    Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList @(
+        '-ExecutionPolicy', 'Bypass',
+        '-File', ('"{0}"' -f $MyInvocation.MyCommand.Path)
+    )
+    exit 0
+}
+
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $backupPath = Join-Path $root 'install-backup.json'
 $credentialPath = Join-Path $env:LOCALAPPDATA 'PaperCutAHK\papercut-credential.xml'

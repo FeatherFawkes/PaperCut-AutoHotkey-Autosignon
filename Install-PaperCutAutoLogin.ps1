@@ -5,6 +5,25 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+function Test-IsAdministrator {
+    $currentIdentity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($currentIdentity)
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+if (-not (Test-IsAdministrator)) {
+    $argList = @(
+        '-ExecutionPolicy', 'Bypass',
+        '-File', ('"{0}"' -f $MyInvocation.MyCommand.Path)
+    )
+    if ($StartNow) {
+        $argList += '-StartNow'
+    }
+
+    Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList $argList
+    exit 0
+}
+
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $startupShortcut = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\PaperCut MF Client.lnk'
 $backupPath = Join-Path $root 'install-backup.json'

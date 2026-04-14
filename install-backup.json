@@ -1,0 +1,8 @@
+﻿{
+    "StartupShortcut":  "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\PaperCut MF Client.lnk",
+    "TargetPath":  "C:\\Program Files\\PaperCut MF Client\\pc-client.exe",
+    "Arguments":  "",
+    "WorkingDirectory":  "C:\\Program Files\\PaperCut MF Client",
+    "IconLocation":  "C:\\Program Files\\PaperCut MF Client\\pc-client.exe,0",
+    "RunValueName":  "PaperCutAutoLoginAHK"
+}
